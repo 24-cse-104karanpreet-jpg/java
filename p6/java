@@ -1,0 +1,43 @@
+class Main { 
+    private String title;
+    private String author;
+    private double price;
+    public Main() {
+        this.title = "Untitled";
+        this.author = "Unknown Author";
+        this.price = 0.0;
+    }
+    public Main(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+    public Main(Main otherBook) {
+        this.title = otherBook.title;
+        this.author = otherBook.author;
+        this.price = otherBook.price;
+    }
+    public void display() {
+        System.out.println("Title: " + title + " | Author: " + author + " | Price: ₹" + price);
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public static void main(String[] args) {
+        Main defaultBook = new Main();
+        System.out.print("Default Book -> ");
+        defaultBook.display();
+        Main originalBook = new Main("Java Programming", "James Gosling", 599.0);
+        System.out.print("Original Book -> ");
+        originalBook.display();
+        Main copiedBook = new Main(originalBook);
+        System.out.print("Copied Book -> ");
+        copiedBook.display();
+        System.out.println("\n--- Modifying the title of Copied Book ---");
+        copiedBook.setTitle("Advanced Java Programming");
+        System.out.print("Original Book (After modification of copy) -> ");
+        originalBook.display();
+        System.out.print("Copied Book (After modification of copy) ->   ");
+        copiedBook.display();
+    }
+}
