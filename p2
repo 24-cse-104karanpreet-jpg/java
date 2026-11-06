@@ -1,1 +1,95 @@
+class Vehicle {
+    String brand = "Generic Vehicle";
+    void start() {
+        System.out.println("The vehicle's engine starts.");
+    }
+}
+class Car extends Vehicle {
+    int numberOfDoors = 4;
+    void displayCarDetails() {
+        // Inherits 'brand' field and 'start()' method from Vehicle
+        System.out.println("Car Brand: " + brand);
+        System.out.println("Number of Doors: " + numberOfDoors);
+    }
+}
+
+class Person {
+    String name = "Alex";
+
+    void showName() {
+        System.out.println("Person Name: " + name);
+    }
+}
+
+class Employee extends Person {
+    int employeeId = 101;
+
+    void showEmployeeId() {
+        System.out.println("Employee ID: " + employeeId);
+    }
+}
+
+class Manager extends Employee {
+    String department = "IT Support";
+
+    void showManagerDetails() {
+        // Inherits 'name' from Person and 'employeeId' from Employee
+        showName();
+        showEmployeeId();
+        System.out.println("Manager Department: " + department);
+    }
+}
+
+
+class Shape {
+    String color = "Red";
+
+    void displayColor() {
+        System.out.println("Shape Color: " + color);
+    }
+}
+
+class Circle extends Shape {
+    double radius = 5.0;
+
+    void drawCircle() {
+        displayColor(); // Inherited from Shape
+        System.out.println("Drawing Circle with radius: " + radius);
+    }
+}
+
+class Rectangle extends Shape {
+    double length = 4.0;
+    double width = 6.0;
+
+    void drawRectangle() {
+        displayColor(); // Inherited from Shape
+        System.out.println("Drawing Rectangle with dimensions: " + length + "x" + width);
+    }
+}
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        
+        System.out.println("=== 1. SINGLE INHERITANCE DEMO ===");
+        Car myCar = new Car();
+        myCar.start();             // Calling inherited method
+        myCar.displayCarDetails(); // Calling subclass method
+        System.out.println();
+
+        System.out.println("=== 2. MULTILEVEL INHERITANCE DEMO ===");
+        Manager myManager = new Manager();
+        myManager.showManagerDetails(); // Accesses fields/methods from Grandparent and Parent classes
+        System.out.println();
+
+        System.out.println("=== 3. HIERARCHICAL INHERITANCE DEMO ===");
+        Circle myCircle = new Circle();
+        Rectangle myRectangle = new Rectangle();
+        
+        System.out.println("--- Circle Subclass ---");
+        myCircle.drawCircle();      // Inherits from Shape
+        
+        System.out.println("--- Rectangle Subclass ---");
+        myRectangle.drawRectangle(); // Inherits from same Shape base class
+    }
+}
 
