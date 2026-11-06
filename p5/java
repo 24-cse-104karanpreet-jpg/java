@@ -1,0 +1,28 @@
+class Main {
+    private double real;
+    private double imaginary;
+    public Main(double real, double imaginary) { 
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+    public Main add(Main other) 
+    {
+        double newReal = this.real + other.real;
+        double newImaginary = this.imaginary + other.imaginary;
+        return new Main(newReal, newImaginary);
+    }
+    public void display() {
+        System.out.println(real + " + " + imaginary + "i");
+    }
+    public static void main(String[] args) {
+        Main c1 = new Main(4.0, 5.0);
+        Main c2 = new Main(2.5, 3.5);        
+        System.out.print("First Complex Number:  ");
+        c1.display();
+        System.out.print("Second Complex Number: ");
+        c2.display();      
+        Main sum = c1.add(c2);
+        System.out.print("Sum:                   ");
+        sum.display();
+    }
+}
