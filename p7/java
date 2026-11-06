@@ -1,0 +1,26 @@
+class Main {
+    private int id;
+    public Main(int id) {
+        this.id = id;
+        System.out.println("✦ Constructor: Object " + id + " has been successfully created.");
+    }
+    public void doWork() {
+        System.out.println("⚙ Work: Object " + id + " is performing an action.");
+    }
+    public static void main(String[] args) {
+        System.out.println("--- Starting Object Lifecycle ---");
+        Main obj = new Main(101);
+        obj.doWork();
+        obj = null; 
+        System.out.println("✖ Reference set to null. Object 101 is now unreferenced.");
+        System.out.println("\n--- Requesting System.gc() ---");
+        System.gc(); 
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("--- End of Main Execution Loop ---");
+    }
+}
