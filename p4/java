@@ -1,0 +1,62 @@
+class Calculator {
+  
+    public int add(int a, int b) {
+        return a + b;
+    }
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }  
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+class Employee {
+    protected double baseSalary;
+    public Employee(double baseSalary) {
+        this.baseSalary = baseSalary;
+    }
+    public double calculatePay() {
+        return baseSalary;
+    }
+}
+
+class SalariedEmployee extends Employee {
+    private double bonus;
+
+    public SalariedEmployee(double baseSalary, double bonus) {
+        super(baseSalary);
+        this.bonus = bonus;
+    }
+    @Override
+    public double calculatePay() {
+        return baseSalary + bonus; 
+    }
+}
+class HourlyEmployee extends Employee {
+    private double hourlyRate;
+    private int hoursWorked;
+    public HourlyEmployee(double hourlyRate, int hoursWorked) {
+        super(0); // Base salary isn't fixed
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+    @Override
+    public double calculatePay() {
+        return hourlyRate * hoursWorked; // Custom calculation
+    }
+}
+public class PolymorphismDemo {
+    public static void main(String[] args) {
+        
+        System.out.println("--- Method Overloading (Compile-Time) ---");
+        Calculator calc = new Calculator();        
+        System.out.println("Adding two ints (5 + 10): " + calc.add(5, 10));
+        System.out.println("Adding three ints (5 + 10 + 15): " + calc.add(5, 10, 15));
+        System.out.println("Adding two doubles (5.5 + 10.5): " + calc.add(5.5, 10.5));
+        System.out.println("\n--- Method Overriding (Runtime) ---");              
+        Employee emp1 = new SalariedEmployee(50000, 5000);
+        Employee emp2 = new HourlyEmployee(25, 160);
+        System.out.println("Salaried Employee Pay: INR " + emp1.calculatePay());
+        System.out.println("Hourly Employee Pay: INR " + emp2.calculatePay());
+    }
+}
