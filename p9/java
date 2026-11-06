@@ -1,0 +1,39 @@
+class Main { 
+    private String name;
+    private double salary;
+    private static int employeeCount = 0
+    public Main(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+        employeeCount++;
+    }
+    public Main() {
+        this("Default Employee", 25000.0);
+    }
+    public void displayEmployeeDetails() {
+        System.out.println("Employee Name: " + this.name + " | Salary: ₹" + this.salary);
+    }
+    public static void displayEmployeeCount() {
+        System.out.println("Total Employees Created: " + employeeCount);
+    }
+    public static void main(String[] args) {
+        System.out.println("--- Starting Employee Registration System ---\n");
+        Main.displayEmployeeCount(); 
+        System.out.println();
+        System.out.println("Creating Employee 1 (No-argument Constructor)...");
+        Main emp1 = new Main();
+        emp1.displayEmployeeDetails();
+        Main.displayEmployeeCount();
+        System.out.println();
+        System.out.println("Creating Employee 2 (Parameterized Constructor)...");
+        Main emp2 = new Main("Aarav Sharma", 75000.0);
+        emp2.displayEmployeeDetails();
+        Main.displayEmployeeCount();
+        System.out.println();
+        System.out.println("Creating Employee 3 (Parameterized Constructor)...");
+        Main emp3 = new Main("Diya Patel", 92000.0);
+        emp3.displayEmployeeDetails();        
+        System.out.println("\n--- Final System Audit ---");
+        Main.displayEmployeeCount();
+    }
+}
