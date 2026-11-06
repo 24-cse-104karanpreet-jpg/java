@@ -1,0 +1,49 @@
+class Main { 
+    private String name;
+    private double price;
+    private int quantity;
+    public Main() {
+        this.name = "Generic Product";
+        this.price = 0.0;
+        this.quantity = 0;
+    }
+    public Main(String name) {
+        this.name = name;
+        this.price = 0.0;
+        this.quantity = 0;
+    }
+    public Main(String name, double price) {
+        this.name = name;
+        this.price = price;
+        this.quantity = 1; 
+    }
+    public Main(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    public double calculateTotalCost() {
+        return this.price * this.quantity;
+    }
+    public void displayDetails() {
+        System.out.println("Product: " + name + 
+                           " | Price: ₹" + price + 
+                           " | Quantity: " + quantity + 
+                           " | Total Cost: ₹" + calculateTotalCost());
+    }
+    public static void main(String[] args) {
+        System.out.println("--- Demonstrating Constructor Overloading --- \n");
+        Main p1 = new Main();
+        System.out.print("Variation 1 (No Args)     -> ");
+        p1.displayDetails();
+        Main p2 = new Main("Wireless Mouse");
+        System.out.print("Variation 2 (Name Only)   -> ");
+        p2.displayDetails();
+        Main p3 = new Main("Mechanical Keyboard", 2499.0);
+        System.out.print("Variation 3 (Name, Price) -> ");
+        p3.displayDetails();
+        Main p4 = new Main("Gaming Monitor", 14999.0, 3);
+        System.out.print("Variation 4 (All Fields)  -> ");
+        p4.displayDetails();
+    }
+}
