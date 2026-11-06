@@ -1,1 +1,67 @@
 
+interface Printable {
+    void print();
+}
+interface Scannable {
+    void scan();
+}
+
+
+class AllInOnePrinter implements Printable, Scannable {
+    @Override
+    public void print() {
+        System.out.println("Printing document...");
+    }
+
+    @Override
+    public void scan() {
+        System.out.println("Scanning document...");
+    }
+}
+class Device {
+    private String brand;
+
+    public Device(String brand) {
+        this.brand = brand;
+    }
+
+    public void showBrand() {
+        System.out.println("Device Brand: " + brand);
+    }
+}
+class SmartOfficeMachine extends Device implements Printable, Scannable {
+    
+    public SmartOfficeMachine(String brand) {
+        super(brand);
+    }
+
+    @Override
+    public void print() {
+        System.out.println("SmartMachine: High-resolution printing initiated.");
+    }
+
+    @Override
+    public void scan() {
+        System.out.println("SmartMachine: Cloud scanning initiated.");
+    }
+    
+    public void sendFax() {
+        System.out.println("SmartMachine: Sending fax...");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("--- Testing Multiple Inheritance ---");
+        AllInOnePrinter basicPrinter = new AllInOnePrinter();
+        basicPrinter.print();
+        basicPrinter.scan();
+
+        System.out.println("\n--- Testing Hybrid Inheritance ---");
+        SmartOfficeMachine smartMachine = new SmartOfficeMachine("HP Pro");
+        smartMachine.showBrand(); 
+        smartMachine.print();   
+        smartMachine.scan();      
+        smartMachine.sendFax();  
+    }
+}
+
