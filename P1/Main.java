@@ -27,13 +27,11 @@ class Student {
         System.out.println("Percentage: " + percentage() + "%" + "\n");
     }    
 }
-
 class Main { 
     public static void main(String[] args) {
         Student s1 = new Student(110, "Rishab", 90, 80, 60);
         Student s2 = new Student(111, "Gulab", 85, 75, 95); 
         Student s3 = new Student(112, "Kajol", 92, 88, 90);  
-
         s1.display();
         s2.display(); 
         s3.display();
